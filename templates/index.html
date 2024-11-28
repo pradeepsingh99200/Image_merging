@@ -5,24 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Merge Images</title>
     <link rel="stylesheet" href="/static/css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <h1>Merge Your Images</h1>
+        <h1>Image Merger</h1>
+        <p>Upload two images and merge them side by side!</p>
         <form action="/" method="POST" enctype="multipart/form-data">
             <label for="image1">Image 1:</label>
             <input type="file" name="image1" id="image1" required>
+            
             <label for="image2">Image 2:</label>
             <input type="file" name="image2" id="image2" required>
+            
             <button type="submit">Merge Images</button>
         </form>
         {% if merged_image %}
-        <h2>Your Merged Image</h2>
-        <img src="/static/{{ merged_image }}" alt="Merged Image">
-        <a href="/download/{{ merged_image }}" download>
-            <button type="button">Download Merged Image</button>
-        </a>
+        <div class="merged-image">
+            <h2>Merged Image:</h2>
+            <img src="/static/{{ merged_image }}" alt="Merged Image">
+            <a href="/download/{{ merged_image }}" class="download-button">Download Merged Image</a>
+        </div>
         {% endif %}
     </div>
 </body>
